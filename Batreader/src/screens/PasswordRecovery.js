@@ -4,11 +4,9 @@ import { ScrollView,TextInput,
    StyleSheet, Image, Button,
  TouchableOpacity, Alert } from 'react-native';
 import Dimensions from 'Dimensions';
-import { StackNavigator, NavigationActions, StackActions } from 'react-navigation';
-import usernameImg from '../images/username.png';
-import passwordImg from '../images/password.png';
+import { StackNavigator } from 'react-navigation';
 
-class Initialization extends Component {
+class PasswordRecovery extends Component {
 
   render() {
     return (
@@ -20,7 +18,7 @@ class Initialization extends Component {
           style={styles.logoImage}>
                 {this.props.children}
             </Image>
-      <Text style={{color: 'white'}}>Log In</Text>
+      <Text style={{color: 'white'}}>Enter Email Address</Text>
           <View >
              <TextInput style={styles.inputContainer}
                placeholder="User Name"
@@ -30,19 +28,10 @@ class Initialization extends Component {
                placeholderTextColor="white"
                />
           </View>
-          <View >
-             <TextInput style={styles.inputContainer}
-               placeholder="Password"
-               type='password'
-               onChangeText={this.onChangeText}
-               returnKeyType={this.props.returnKeyType}
-               placeholderTextColor="white"
-               secureTextEntry />
-          </View>
 
         <View style={styles.container}>
           <TouchableOpacity    style={styles.button}
-          onPress={() => this.props.navigation.dispatch(resetAction)}>
+          onPress={() => this.props.navigation.navigate('HomeScreen')}>
           <Text   style={{color: 'white'}}>  Submit  </Text>
         </TouchableOpacity>
       </View>
@@ -53,7 +42,7 @@ class Initialization extends Component {
     <Text style={{color: 'white'}}>Create Account</Text>
     </TouchableOpacity>
     <TouchableOpacity
-    onPress={() => this.props.navigation.navigate('Recovery')}>
+    onPress={() => this.props.navigation.navigate('Details')}>
        <Text style={{color: 'white'}}>Forgot Password?</Text>
   </TouchableOpacity>
 
@@ -65,12 +54,6 @@ class Initialization extends Component {
     );
   }
 }
-const resetAction = StackActions.reset({
-    index: 0,
-    actions: [
-      NavigationActions.navigate({ routeName: 'HomeScreen' })],
-  });
-
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   altcontainer: {
@@ -132,4 +115,4 @@ backgroundImage: {
   color: 'white'
 },
 });
-export default Initialization;
+export default PasswordRecovery;

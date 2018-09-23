@@ -24,6 +24,15 @@ render() {
     <Text style={{color: 'white'}}>Sign Up</Text>
         <View >
            <TextInput style={styles.inputContainer}
+             placeholder="user@gmail.com "
+             type='email'
+             onChangeText={this.onChangeText}
+             returnKeyType={this.props.returnKeyType}
+             placeholderTextColor="white"
+             />
+        </View>
+        <View >
+           <TextInput style={styles.inputContainer}
              placeholder="User Name"
              type='username'
              onChangeText={this.onChangeText}
@@ -44,7 +53,7 @@ render() {
       <View style={styles.container}>
         <TouchableOpacity    style={styles.button}
         onPress={() => this.props.navigation.navigate('HomeScreen')}>
-        <Text   style={{color: 'white'}}>  SUBMIT  </Text>
+        <Text   style={{color: 'white'}}>  Submit  </Text>
       </TouchableOpacity>
     </View>
     </View>

@@ -1,16 +1,38 @@
 // In App.js in a new project
 
-import React from 'react';
+import React, {Component} from 'react';
 import { View, Text } from 'react-native';
-import { StackNavigator, NavigationActions, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, NavigationActions, DrawerNavigator, TabNavigator} from 'react-navigation';
 import Initialization from './src/screens/Initialization';
+import SideBar from './src/components/SideBar';
 import SignUp from './src/screens/SignUp';
 import HomeScreen from './src/screens/Home';
+import Recovery from './src/screens/PasswordRecovery';
+
+export const Drawer = new DrawerNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  Four: {
+    screen: HomeScreen,
+  },
+  Five: {
+    screen: HomeScreen,
+  }
+}, {
+  contentComponent: SideBar,
+  drawerWidth: 250,
+  drawerPosition: 'left',
+  drawerOpenRoute: 'DrawerOpen',
+  drawerCloseRoute: 'DrawerClose',
+  drawerToggleRoute: 'DrawerToggle',
+});
 const RootStack = new StackNavigator({
   Home:{
     screen: Initialization,
   navigationOptions: {
     title: 'Log In',
+     headerLeft: null,
       headerStyle: {
         backgroundColor: '#006080',
       },
@@ -34,33 +56,39 @@ const RootStack = new StackNavigator({
     }
   },
 HomeScreen: {
-  screen: HomeScreen,
+  screen: Drawer,
+  navigationOptions: {
+    title: 'Sign Up',
+      headerStyle: {
+        backgroundColor: '#006080',
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }
+  },
+Recovery: {
+screen: Recovery,
 navigationOptions: {
-  title: 'Home',
-    headerStyle: {
-      backgroundColor: '#006080',
-      headerLeft: null
+title: 'Recover User Info',
+  headerStyle: {
+    backgroundColor: '#006080',
+    headerLeft: null
+  },
+  headerTintColor: '#ffffff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+        },
+      }
     },
-    headerTintColor: '#ffffff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-  }
-},
+
 }
 );
 
-const tabWindow = new DrawerNavigator({
-  Home: {
-    screen: Initialization
-  },
-  SignUp: {
-    screen: SignUp
-  }
-}, {
-  drawerWidth: 300
-});
-export default class App extends React.Component {
+
+
+export default class App extends Component {
   render() {
     return <RootStack />
   }

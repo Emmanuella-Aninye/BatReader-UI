@@ -1,23 +1,47 @@
 import React, {Component} from 'react';
-import { ScrollView,TextInput,
-   ImageBackground,Text, View,
-   StyleSheet, Image, Button,
- TouchableOpacity, Alert } from 'react-native';
+import { ScrollView,TextInput, ImageBackground,Text, View, StyleSheet, Image, Button, TouchableOpacity, Alert } from 'react-native';
 import Dimensions from 'Dimensions';
-import { StackNavigator } from 'react-navigation';
-import {tabWindow} from '../../App'
-import { DrawerNavigator , DrawerItems, SafeAreaView} from "react-navigation";
-
+import { DrawerNavigator ,StackNavigator,  DrawerItems, SafeAreaView} from "react-navigation";
+import Card from '../components/Card';
+import NewReleasesCardSection from '../components/CardSectionSideScroll';
+import CardSectionGrid from '../components/CardSectionGrid';
+import SideBar from '../components/SideBar';
+CardSectionGrid
 class Home extends Component {
+  constructor(props) {
+      super(props);
+      this.state = { images: undefined } ;
+    }
   render() {
-          tabWindow
     return (
+      <Card>
+      <View>
+      <Text style={styles.textFirst}>
+      New Releases
+      </Text>
+      </View>
+      <View>
+        <NewReleasesCardSection/>
+      </View>
 
-      <Text style={{color: 'white'}}>Home</Text>
+      <View>
+      <Text style={styles.textFirst}>
+      Recently Updated
+      </Text>
+      </View>
+      <View>
+        <NewReleasesCardSection/>
+      </View>
 
+      <View>
+      <CardSectionGrid/>
+      </View>
+
+</Card>
     );
   }
 }
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   altcontainer: {
@@ -28,10 +52,9 @@ const styles = StyleSheet.create({
    justifyContent: 'space-around'
  },
   textFirst: {
-  fontSize: 50,
+  fontSize: 20,
   fontWeight: 'bold',
-  textAlign: 'center',
-  marginTop: 300
+  textAlign: 'center'
 },
 backgroundImage: {
        flex: 1,
