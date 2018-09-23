@@ -26,7 +26,7 @@ export default class SideBar extends Component {
             icon={{name: 'home', type: 'font-awesome', size: 20}}
             title='Home'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('HomeScreen')}/>
+            onPress={this.navigateToScreen('Home')}/>
 
             <Text style={styles.sectionHeadingStyle}>
            </Text>
@@ -36,7 +36,7 @@ export default class SideBar extends Component {
              icon={{name: 'favorite', size: 20}}
              title='Favorites'
              buttonStyle={styles.button}
-             onPress={this.navigateToScreen('HomeScreen')}/>
+             onPress={this.navigateToScreen('Favorites')}/>
 
             <Text style={styles.sectionHeadingStyle}>
             </Text>
@@ -46,7 +46,7 @@ export default class SideBar extends Component {
             icon={{name: 'history', type: 'font-awesome', size: 20}}
             title='History'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('HomeScreen')}/>
+            onPress={this.navigateToScreen('History')}/>
 
             <Text style={styles.sectionHeadingStyle}>
            </Text>
@@ -56,7 +56,7 @@ export default class SideBar extends Component {
             icon={{name: 'download', type: 'font-awesome', size: 20}}
             title='Downloads'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('HomeScreen')}/>
+            onPress={this.navigateToScreen('Downloads')}/>
 
             <Text style={styles.sectionHeadingStyle}>
            </Text>
@@ -66,7 +66,7 @@ export default class SideBar extends Component {
              icon={{name: 'settings', size: 20}}
              title='Settings'
              buttonStyle={styles.button}
-             onPress={this.navigateToScreen('Initialization')}/>
+             onPress={this.navigateToScreen('Settings')}/>
         </ScrollView>
       </View>
     );
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   separatorTop: {
-    marginBottom: 5,
+    marginBottom: 1,
   },
   sectionHeadingStyle: {
     textAlign: 'center',

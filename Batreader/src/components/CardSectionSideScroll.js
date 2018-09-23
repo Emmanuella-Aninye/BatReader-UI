@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, FlatList} from 'react-native';
+import { View, Text, Image, ScrollView,TouchableHighlight, FlatList} from 'react-native';
 import pic from '../images/155.jpg'
 const CardSection = (props) => {
   return (
@@ -9,11 +9,20 @@ const CardSection = (props) => {
       ItemSeparatorComponent={ () => <View style={ { width: 1, height: '100%',
       backgroundColor: '#000' } } /> }
        data = {data}
-       renderItem={({item, index: number}) =>
+       renderItem={({item,separators}) =>
           <View style={styles.textStyle}>
             <Text style={styles.textStyle}>{item.name}</Text>
             <Image source={item.uri} style={styles.imageView}/>
-          </View> }
+            <TouchableHighlight
+              onPress={() => this._onPress(item)}
+              onShowUnderlay={separators.highlight}
+              onHideUnderlay={separators.unhighlight}>
+              <View style={{backgroundColor: 'white'}}>
+              <Text>{item.title}</Text>
+              </View>
+              </TouchableHighlight>
+          </View>
+        }
           keyExtractor={item => item.name}
     />
 

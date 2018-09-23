@@ -15,11 +15,17 @@ export const Drawer = new DrawerNavigator({
   Home: {
     screen: HomeScreen,
   },
-  Four: {
-    screen: HomeScreen,
+  Favorites: {
+    screen: SignUp,
   },
-  Five: {
-    screen: HomeScreen,
+  Settings: {
+    screen: Recovery,
+  },
+  Downloads: {
+    screen: SignUp,
+  },
+  History: {
+    screen: Recovery,
   }
 }, {
   contentComponent: SideBar,

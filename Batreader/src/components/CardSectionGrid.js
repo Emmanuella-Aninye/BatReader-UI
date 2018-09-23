@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import {View, StyleSheet,Text, Image, FlatList } from 'react-native';
+import {View, StyleSheet,Text, Image, FlatList,TouchableHighlight } from 'react-native';
 import Dimensions from 'Dimensions';
 import pic from '../images/Shadow_Bat.png'
+import { StackNavigator, NavigationActions, StackActions } from 'react-navigation';
 
-export default class CardSectionGrid extends Component {
-
+class CardSectionGrid extends Component {
+  navigateToScreen = (route) => () => {
+    const navigate = NavigationActions.navigate({
+      routeName: route
+    });
+    this.props.navigation.dispatch(navigate);
+  }
     render () {
     return (
       <View style={styles.border}>
       <FlatList
-    contentContainerStyle={styles.list}
-    data={data}
-    renderItem={({item, index: number}) =>
-       <View style={styles.item}>
-         <Image source={item.uri} style={styles.image} />
-         <Text >{item.name}</Text>
-        </View> }
-    keyExtractor={item => item.name}
-    numColumns={3}
-
-    />
-  </View>);
+        contentContainerStyle={styles.list}
+        data={data}
+        renderItem={({item, index: number,separators}) =>
+           <View style={styles.item}>
+             <TouchableHighlight
+               onPress={this.navigateToScreen('Home')}
+               onShowUnderlay={separators.highlight}
+               onHideUnderlay={separators.unhighlight}>
+               <View>
+               <Image source={item.uri} style={styles.image} />
+               <Text >{item.name}</Text>
+               </View>
+              </TouchableHighlight>
+            </View> }
+          keyExtractor={item => item.name}
+          numColumns={3}  />
+        </View>
+);
     }
 }
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -93,3 +105,5 @@ const styles = StyleSheet.create({
     }
 
 });
+
+export default CardSectionGrid;
