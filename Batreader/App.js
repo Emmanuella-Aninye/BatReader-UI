@@ -1,8 +1,9 @@
 // In App.js in a new project
 
 import React, {Component} from 'react';
-import { View, Text } from 'react-native';
-import { StackNavigator, NavigationActions, DrawerNavigator, TabNavigator} from 'react-navigation';
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity} from 'react-native';
+import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-buttons';
+import { StackNavigator, NavigationActions, Icon,  DrawerNavigator, DrawerActions, TabNavigator} from 'react-navigation';
 import Initialization from './src/screens/Initialization';
 import SideBar from './src/components/SideBar';
 import SignUp from './src/screens/SignUp';
@@ -57,15 +58,19 @@ const RootStack = new StackNavigator({
   },
 HomeScreen: {
   screen: Drawer,
-  navigationOptions: {
-    title: 'Sign Up',
-      headerStyle: {
-        backgroundColor: '#006080',
-      },
-      headerTintColor: '#ffffff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
+  navigationOptions: ({ navigation }) => {
+      const { state } = navigation;
+      if (state.routes[ state.index ].key !== 'DrawerClose') {
+        return {
+          headerTitle: "HIOJ",
+          headerLeft: (
+            <Button title="close" onPress={ () => navigation.navigate('Draw') } >
+            </Button>
+          )
+        };
+      } else {
+        return null
+      }
     }
   },
 Recovery: {
@@ -86,7 +91,23 @@ title: 'Recover User Info',
 }
 );
 
-
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 5,
+    flex: 1,
+  },
+  separatorTop: {
+    marginBottom: 5,
+  },
+  sectionHeadingStyle: {
+    textAlign: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 5
+  },
+  button: {
+    backgroundColor: '#006080',
+  }
+});
 
 export default class App extends Component {
   render() {
