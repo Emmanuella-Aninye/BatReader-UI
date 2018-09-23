@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button,Icon} from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 export default class SideBar extends Component {
@@ -55,12 +55,11 @@ export default class SideBar extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 35,
+    paddingTop: 5,
     flex: 1,
   },
   separatorTop: {
-    marginBottom: 30,
-    height: 125,
+    marginBottom: 5,
   },
   sectionHeadingStyle: {
     textAlign: 'center',
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5
   },
   button: {
-    backgroundColor: '#E71D36',
+    backgroundColor: '#006080',
   }
 });
 
