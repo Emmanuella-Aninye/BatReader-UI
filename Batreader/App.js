@@ -1,9 +1,10 @@
 // In App.js in a new project
 
 import React, {Component} from 'react';
-import { View, Text, Image, StyleSheet, Button, TouchableOpacity} from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-buttons';
-import { StackNavigator, NavigationActions, Icon,  DrawerNavigator, DrawerActions, TabNavigator} from 'react-navigation';
+import { Button, Icon} from 'react-native-elements';
+import { StackNavigator, NavigationActions,  DrawerNavigator, DrawerActions, TabNavigator} from 'react-navigation';
 import Initialization from './src/screens/Initialization';
 import SideBar from './src/components/SideBar';
 import SignUp from './src/screens/SignUp';
@@ -60,19 +61,26 @@ HomeScreen: {
   screen: Drawer,
   navigationOptions: ({ navigation }) => {
       const { state } = navigation;
-      if (state.routes[ state.index ].key !== 'DrawerClose') {
         return {
-          headerTitle: "HIOJ",
+          headerTitle: "Home",
           headerLeft: (
-            <Button title="close" onPress={ () => navigation.navigate('Draw') } >
-            </Button>
-          )
-        };
-      } else {
-        return null
-      }
-    }
-  },
+            <Icon
+            name='menu'
+            onPress={ () => navigation.openDrawer()}
+            size={35}/>
+          ),
+         headerStyle: {
+              backgroundColor: '#006080',
+              headerLeft: null
+            },
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+              fontWeight: 'bold'
+              }
+            }
+
+        }
+    },
 Recovery: {
 screen: Recovery,
 navigationOptions: {
@@ -106,6 +114,10 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#006080',
+  },
+  image: {
+    height: 70,
+    width: 100
   }
 });
 

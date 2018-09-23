@@ -21,8 +21,8 @@ class PasswordRecovery extends Component {
       <Text style={{color: 'white'}}>Enter Email Address</Text>
           <View >
              <TextInput style={styles.inputContainer}
-               placeholder="User Name"
-               type='username'
+               placeholder="user@gmail.com"
+               type='Email'
                onChangeText={this.onChangeText}
                returnKeyType={this.props.returnKeyType}
                placeholderTextColor="white"

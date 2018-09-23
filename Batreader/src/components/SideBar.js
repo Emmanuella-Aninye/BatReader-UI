@@ -23,31 +23,50 @@ export default class SideBar extends Component {
 
           <Button
             raised
-            icon={{name: 'trash-o', type: 'font-awesome', size: 20}}
+            icon={{name: 'home', type: 'font-awesome', size: 20}}
             title='Home'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('Home')}/>
+            onPress={this.navigateToScreen('HomeScreen')}/>
+
+            <Text style={styles.sectionHeadingStyle}>
+           </Text>
+
+           <Button
+             raised
+             icon={{name: 'favorite', size: 20}}
+             title='Favorites'
+             buttonStyle={styles.button}
+             onPress={this.navigateToScreen('HomeScreen')}/>
 
             <Text style={styles.sectionHeadingStyle}>
             </Text>
 
           <Button
             raised
-            icon={{name: 'umbrella', type: 'font-awesome', size: 20}}
-            title='Four'
+            icon={{name: 'history', type: 'font-awesome', size: 20}}
+            title='History'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('Four')}/>
+            onPress={this.navigateToScreen('HomeScreen')}/>
 
             <Text style={styles.sectionHeadingStyle}>
            </Text>
 
           <Button
             raised
-            icon={{name: 'user-circle', type: 'font-awesome', size: 20}}
-            title='Five'
+            icon={{name: 'download', type: 'font-awesome', size: 20}}
+            title='Downloads'
             buttonStyle={styles.button}
-            onPress={this.navigateToScreen('Five')}/>
+            onPress={this.navigateToScreen('HomeScreen')}/>
 
+            <Text style={styles.sectionHeadingStyle}>
+           </Text>
+
+           <Button
+             raised
+             icon={{name: 'settings', size: 20}}
+             title='Settings'
+             buttonStyle={styles.button}
+             onPress={this.navigateToScreen('Initialization')}/>
         </ScrollView>
       </View>
     );
