@@ -6,9 +6,11 @@ import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-butto
 import { Button, Icon} from 'react-native-elements';
 import { StackNavigator, NavigationActions,  DrawerNavigator, DrawerActions, TabNavigator} from 'react-navigation';
 import Initialization from './src/screens/Initialization';
+import CardSectionGrid from './src/components/SideBar';
 import SideBar from './src/components/SideBar';
 import SignUp from './src/screens/SignUp';
 import HomeScreen from './src/screens/Home';
+import NovelDescription from './src/screens/NovelDescription';
 import Recovery from './src/screens/PasswordRecovery';
 
 export const Drawer = new DrawerNavigator({
@@ -101,7 +103,20 @@ title: 'Recover User Info',
         },
       }
     },
-
+    NovelDescription: {
+    screen: NovelDescription,
+    navigationOptions: {
+    title: 'NovelDescription',
+      headerStyle: {
+        backgroundColor: '#006080',
+        headerLeft: null
+      },
+      headerTintColor: '#ffffff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+            },
+          }
+        },
 }
 );
 

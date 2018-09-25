@@ -6,32 +6,15 @@ import Card from '../components/Card';
 import NewReleasesCardSection from '../components/CardSectionSideScroll';
 import CardSectionGrid from '../components/CardSectionGrid';
 import SideBar from '../components/SideBar';
-class Home extends Component {
+class NovelDescription extends Component {
 
   render() {
     return (
       <Card>
-        <View>
-          <Text style={styles.textFirst}>
-          New Releases
-          </Text>
-        </View>
-        <View>
-          <NewReleasesCardSection/>
-        </View>
-
-        <View>
-        <Text style={styles.textFirst}>
-        Recently Updated
-        </Text>
-        </View>
-      <View>
-        <NewReleasesCardSection/>
-      </View>
-
+  
       <View>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('NovelDescription')}>
+          onPress={() => this.props.navigation.navigate('Recovery')}>
            <View>
            <CardSectionGrid/>
            </View>
@@ -103,4 +86,4 @@ backgroundImage: {
   color: 'white'
 },
 });
-export default Home;
+export default NovelDescription;
